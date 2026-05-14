@@ -95,11 +95,11 @@ export default function Hero() {
               }}
             >
               Je vous accompagne dans votre démarche de changement personnel, relationnel ou professionnel — avec une approche structurée autour de
-              six axes essentiels, pensés pour vous aider à avancer avec clarté et sérénité.
+              cinq axes essentiels, pensés pour vous aider à avancer avec clarté et sérénité.
             </p>
 
             <div className="flex flex-wrap gap-4 mt-10 reveal reveal-delay-3">
-              <a href="#contact" className="btn-primary">
+              <a href="https://perfactive.fr/nhk-psycho/nadia-kout-1/book" target="_blank" rel="noopener noreferrer" className="btn-primary">
                 Prendre rendez-vous
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -110,13 +110,12 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Six axes pills */}
+            {/* Cinq axes pills */}
             <div className="flex flex-wrap gap-2 mt-10 reveal reveal-delay-4">
               {[
                 "Accompagnement personnalisé",
                 "Analyse transactionnelle",
                 "Thérapie brève",
-                "Solutions concrètes",
                 "Soutien émotionnel",
                 "Bien-être & Transformation",
               ].map((axe) => (
@@ -142,7 +141,7 @@ export default function Hero() {
               {[
                 { num: "100%", label: "confidentiel" },
                 { num: "1ère", label: "séance d'écoute" },
-                { num: "6", label: "axes d'accompagnement" },
+                { num: "5", label: "axes d'accompagnement" },
               ].map((item) => (
                 <div key={item.label} className="flex flex-col">
                   <span
@@ -211,26 +210,6 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Floating badge */}
-              <div
-                className="absolute -left-8 bottom-16 bg-white/90 backdrop-blur-sm px-5 py-4 shadow-lg"
-                style={{
-                  borderRadius: "2px",
-                  borderLeft: "3px solid var(--color-terra)",
-                  minWidth: "160px",
-                }}
-              >
-                <p
-                  style={{
-                    fontFamily: "var(--font-cormorant)",
-                    fontSize: "1.1rem",
-                    color: "var(--color-forest)",
-                    fontWeight: 500,
-                  }}
-                >
-                  Thérapie brève & A.T.
-                </p>
-              </div>
 
               <svg className="absolute -right-8 -top-8 opacity-40" width="100" height="100" viewBox="0 0 100 100">
                 <circle cx="50" cy="50" r="45" stroke="#8B9E8C" strokeWidth="0.5" fill="none" strokeDasharray="3 5" />

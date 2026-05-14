@@ -1,22 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const CONTACT_EMAIL = "agenceseo25@gmail.com";
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const { nom, email, telephone, sujet, message, format } = body;
-
-    // Configure your SMTP transport here
-    // Example using Gmail, or use a service like Resend, Brevo, etc.
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || "smtp.gmail.com",
-      port: Number(process.env.SMTP_PORT) || 587,
-      secure: false,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
 
     const sujetLabels: Record<string, string> = {
       individuel: "Individuel – adulte",
@@ -56,7 +46,7 @@ export async function POST(req: NextRequest) {
         <div class="container">
           <div class="header">
             <h1>NHK</h1>
-            <p>Nouvelle demande de rendez-vous</p>
+            <p>Nouvelle demande de renseignements</p>
           </div>
           <div class="body">
             <div class="field">
@@ -89,54 +79,75 @@ export async function POST(req: NextRequest) {
       </html>
     `;
 
-    await transporter.sendMail({
-      from: `"NHK – Formulaire contact" <${process.env.SMTP_USER}>`,
-      to: process.env.CONTACT_EMAIL || "nhk.psycho@gmail.com",
-      replyTo: email,
-      subject: `[NHK] Demande de RDV – ${nom} (${sujetLabels[sujet] || sujet})`,
-      html: htmlContent,
+    // Send to Nadia via Resend
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+      },
+      body: JSON.stringify({
+        from: "NHK Formulaire <onboarding@resend.dev>",
+        to: [CONTACT_EMAIL],
+        reply_to: email,
+        subject: `[NHK] Demande de renseignements – ${nom} (${sujetLabels[sujet] || sujet})`,
+        html: htmlContent,
+      }),
     });
 
+    if (!res.ok) {
+      const err = await res.text();
+      console.error("Resend error:", err);
+      return NextResponse.json({ error: "Sending failed" }, { status: 500 });
+    }
+
     // Auto-reply to client
-    await transporter.sendMail({
-      from: `"Nadia KOUT – NHK" <${process.env.SMTP_USER}>`,
-      to: email,
-      subject: "Votre demande a bien été reçue – NHK",
-      html: `
-        <!DOCTYPE html>
-        <html lang="fr">
-        <head><meta charset="UTF-8"><style>
-          body { font-family: Georgia, serif; color: #2C4A3E; background: #F5EFE4; margin: 0; }
-          .container { max-width: 520px; margin: 0 auto; background: white; }
-          .header { background: #2C4A3E; padding: 32px; text-align: center; }
-          .header h1 { color: #F5EFE4; font-size: 1.4rem; font-weight: 400; letter-spacing: 0.2em; margin: 0; }
-          .body { padding: 40px; }
-          .body p { line-height: 1.8; font-size: 0.97rem; color: rgba(44,74,62,0.8); }
-          .highlight { color: #C4774A; font-style: italic; }
-          .footer { background: #F5EFE4; padding: 20px 36px; text-align: center; font-family: sans-serif; font-size: 0.72rem; color: rgba(44,74,62,0.4); }
-        </style></head>
-        <body>
-          <div class="container">
-            <div class="header"><h1>NHK</h1></div>
-            <div class="body">
-              <p>Bonjour ${nom},</p>
-              <p>
-                J'ai bien reçu votre demande et je vous remercie de me faire confiance pour vous accompagner. 
-                Je vous répondrai dans les <span class="highlight">48 heures</span> pour convenir d'un moment d'échange.
-              </p>
-              <p>
-                En attendant, n'hésitez pas à me contacter directement si vous avez des questions urgentes.
-              </p>
-              <p style="margin-top: 32px;">
-                Avec bienveillance,<br/>
-                <strong>Nadia KOUT</strong>
-              </p>
+    await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+      },
+      body: JSON.stringify({
+        from: "Nadia KOUT – NHK <onboarding@resend.dev>",
+        to: [email],
+        subject: "Votre message a bien été reçu – NHK",
+        html: `
+          <!DOCTYPE html>
+          <html lang="fr">
+          <head><meta charset="UTF-8"><style>
+            body { font-family: Georgia, serif; color: #2C4A3E; background: #F5EFE4; margin: 0; }
+            .container { max-width: 520px; margin: 0 auto; background: white; }
+            .header { background: #2C4A3E; padding: 32px; text-align: center; }
+            .header h1 { color: #F5EFE4; font-size: 1.4rem; font-weight: 400; letter-spacing: 0.2em; margin: 0; }
+            .body { padding: 40px; }
+            .body p { line-height: 1.8; font-size: 0.97rem; color: rgba(44,74,62,0.8); }
+            .highlight { color: #C4774A; font-style: italic; }
+            .footer { background: #F5EFE4; padding: 20px 36px; text-align: center; font-family: sans-serif; font-size: 0.72rem; color: rgba(44,74,62,0.4); }
+          </style></head>
+          <body>
+            <div class="container">
+              <div class="header"><h1>NHK</h1></div>
+              <div class="body">
+                <p>Bonjour ${nom},</p>
+                <p>
+                  J'ai bien reçu votre message et je vous en remercie.
+                  Je vous répondrai dans les <span class="highlight">48 heures</span>.
+                </p>
+                <p>
+                  En attendant, n'hésitez pas à prendre directement rendez-vous en ligne si vous le souhaitez.
+                </p>
+                <p style="margin-top: 32px;">
+                  Avec bienveillance,<br/>
+                  <strong>Nadia KOUT</strong>
+                </p>
+              </div>
+              <div class="footer">Cabinet NHK – Psychopraticienne · nhk.psycho@gmail.com</div>
             </div>
-            <div class="footer">Cabinet NHK – Psychopraticienne · nhk.psycho@gmail.com</div>
-          </div>
-        </body>
-        </html>
-      `,
+          </body>
+          </html>
+        `,
+      }),
     });
 
     return NextResponse.json({ success: true });

@@ -74,7 +74,9 @@ export default function Footer() {
             vous correspond — <em>sans engagement.</em>
           </h2>
           <a
-            href="#contact"
+            href="https://perfactive.fr/nhk-psycho/nadia-kout-1/book"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -203,7 +205,7 @@ export default function Footer() {
               <div className="flex items-center gap-3">
                 <IconPin />
                 <p style={{ fontFamily: "var(--font-jost)", fontSize: "0.87rem", fontWeight: 300, color: "rgba(245,239,228,0.55)" }}>
-                  146 bis Avenue Charles de Gaulle - 92200 Neuilly sur Seine
+                  5 rue Paul Émile Victor - 91300 Massy
                 </p>
               </div>
               <div className="flex items-center gap-3">
@@ -235,8 +237,8 @@ export default function Footer() {
           </p>
           <div className="flex gap-6">
             {[
-              ["#", "Mentions légales"],
-              ["#", "Politique de confidentialité"],
+              ["/mentions-legales", "Mentions légales"],
+              ["/politique-de-confidentialite", "Politique de confidentialité"],
             ].map(([href, label]) => (
               <a
                 key={label}

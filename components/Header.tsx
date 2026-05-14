@@ -62,7 +62,7 @@ export default function Header() {
           </nav>
 
           {/* CTA */}
-          <a href="#contact" className="hidden lg:inline-flex btn-primary text-xs ml-8">
+          <a href="https://perfactive.fr/nhk-psycho/nadia-kout-1/book" target="_blank" rel="noopener noreferrer" className="hidden lg:inline-flex btn-primary text-xs ml-8">
             Prendre rendez-vous
             <ArrowRight size={12} />
           </a>
@@ -103,7 +103,7 @@ export default function Header() {
               {link.label}
             </a>
           ))}
-          <a href="#contact" onClick={() => setMenuOpen(false)} className="btn-primary mt-6">
+          <a href="https://perfactive.fr/nhk-psycho/nadia-kout-1/book" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} className="btn-primary mt-6">
             Prendre rendez-vous
           </a>
         </nav>

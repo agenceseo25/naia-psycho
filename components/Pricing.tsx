@@ -172,7 +172,7 @@ export default function Pricing() {
             </div>
 
             <div className="reveal reveal-delay-5">
-              <a href="#contact" className="btn-primary">
+              <a href="https://perfactive.fr/nhk-psycho/nadia-kout-1/book" target="_blank" rel="noopener noreferrer" className="btn-primary">
                 Réserver une séance
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

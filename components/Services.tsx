@@ -49,21 +49,6 @@ const services = [
   {
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <rect x="6" y="5" width="16" height="18" rx="2" stroke="currentColor" strokeWidth="1.2" fill="none" />
-        <path d="M10 11 L18 11 M10 14 L18 14 M10 17 L14 17" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-        <circle cx="20" cy="20" r="4" fill="currentColor" opacity="0.15" />
-        <path d="M18.5 20 L20 21.5 L22 19" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-    title: "Solutions rapides & concrètes",
-    subtitle: "Des outils pour le quotidien",
-    description:
-      "Vous repartez avec des outils pratiques et applicables dans votre quotidien, pour avancer entre les séances et renforcer votre autonomie.",
-    tags: ["Outils", "Autonomie", "Pratique"],
-  },
-  {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
         <path d="M14 5 C14 5 7 9 7 15 C7 19 10 22 14 22 C18 22 21 19 21 15 C21 9 14 5 14 5Z" stroke="currentColor" strokeWidth="1.2" fill="none" />
         <path d="M11 15 C12 17 13 18 14 18 C15 18 16 17 17 15" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
         <path d="M14 5 L14 12" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeDasharray="1 2" />
@@ -121,7 +106,7 @@ export default function Services() {
         {/* Section header */}
         <div className="max-w-2xl mb-20">
           <p className="section-eyebrow reveal">Accompagnement</p>
-          <h2 className="section-title text-4xl md:text-5xl mt-4 mb-5 reveal reveal-delay-1">Mon approche en six axes</h2>
+          <h2 className="section-title text-4xl md:text-5xl mt-4 mb-5 reveal reveal-delay-1">Mon approche en cinq axes</h2>
           <span className="deco-line reveal reveal-delay-2 mb-6 inline-block" />
           <p
             className="reveal reveal-delay-3"
@@ -237,7 +222,7 @@ export default function Services() {
               Je peux également intervenir en complément d'un suivi psychologique ou psychiatrique.
             </p>
           </div>
-          <a href="#contact" className="btn-primary whitespace-nowrap">
+          <a href="https://perfactive.fr/nhk-psycho/nadia-kout-1/book" target="_blank" rel="noopener noreferrer" className="btn-primary whitespace-nowrap">
             Prendre rendez-vous
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

@@ -284,7 +284,7 @@ export default function BlogPage() {
             >
               Prendre rendez-vous pour une première séance d'écoute — sans engagement.
             </p>
-            <Link href="/#contact" className="btn-primary">
+            <Link href="https://perfactive.fr/nhk-psycho/nadia-kout-1/book" target="_blank" rel="noopener noreferrer" className="btn-primary">
               Prendre rendez-vous
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

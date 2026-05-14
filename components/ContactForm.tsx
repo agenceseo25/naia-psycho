@@ -94,14 +94,14 @@ export default function ContactForm() {
           {/* Left info panel */}
           <div className="lg:col-span-2">
             <p className="section-eyebrow reveal">Contact</p>
-            <h2 className="section-title text-4xl md:text-5xl mt-4 mb-5 reveal reveal-delay-1">Prendre rendez-vous</h2>
+            <h2 className="section-title text-4xl md:text-5xl mt-4 mb-5 reveal reveal-delay-1">Une question ?</h2>
             <span className="deco-line reveal reveal-delay-2 mb-6 inline-block" />
 
             <p
               className="reveal reveal-delay-2 mb-10"
               style={{ fontFamily: "var(--font-jost)", fontWeight: 300, fontSize: "0.95rem", lineHeight: "1.85", color: "rgba(44,74,62,0.7)" }}
             >
-              Envoyez-moi un message pour prendre rendez-vous ou simplement pour en savoir plus. Je vous répondrai dans les 48 heures.
+              Envoyez-moi un message pour toute demande de renseignements. Je vous répondrai dans les 48 heures.
             </p>
 
             <div className="space-y-6 reveal reveal-delay-3">
@@ -117,7 +117,7 @@ export default function ContactForm() {
                     </svg>
                   ),
                   label: "Cabinet",
-                  value: "146 bis Avenue Charles de Gaulle - 92200 Neuilly sur Seine",
+                  value: "5 rue Paul Émile Victor - 91300 Massy",
                   sublabel: "Présentiel",
                 },
                 {

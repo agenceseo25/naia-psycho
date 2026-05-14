@@ -168,6 +168,7 @@ export default function About() {
                 { icon: "◈", label: "Vie relationnelle", desc: "Difficultés de couple ou tensions familiales" },
                 { icon: "◉", label: "Adolescence", desc: "Soutien face aux problématiques spécifiques de cet âge" },
                 { icon: "◐", label: "Mieux-être", desc: "États dépressifs, perte de repères ou besoin de changement" },
+                { icon: "◇", label: "Enfants", desc: "Phobie scolaire, angoisse et confiance en soi chez l'enfant" },
               ].map((v) => (
                 <div key={v.label} className="flex items-start gap-3">
                   <span style={{ color: "var(--color-terra)", fontSize: "1rem", marginTop: "2px" }}>{v.icon}</span>
