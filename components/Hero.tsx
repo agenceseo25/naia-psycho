@@ -110,6 +110,85 @@ export default function Hero() {
               </a>
             </div>
 
+            {/* Champ d'accompagnement */}
+            <div className="reveal reveal-delay-4 mt-10">
+              <p
+                style={{
+                  fontFamily: "var(--font-jost)",
+                  fontSize: "0.62rem",
+                  letterSpacing: "0.22em",
+                  textTransform: "uppercase",
+                  color: "rgba(44,74,62,0.5)",
+                  marginBottom: "12px",
+                  fontWeight: 500,
+                }}
+              >
+                Mon champ d&apos;accompagnement
+              </p>
+              <div className="grid grid-cols-3 gap-3">
+                {[
+                  {
+                    emoji: "👦🧸",
+                    label: "Enfants\n(dès 5 ans)",
+                    items: ["Phobies", "Confiance en soi", "Angoisse scolaire", "Gestion des émotions"],
+                    dark: false,
+                  },
+                  {
+                    emoji: "🧗📚",
+                    label: "Adolescents",
+                    items: ["Décrochage scolaire", "Addiction aux écrans", "Stress des examens", "Angoisse", "Accompagnement sur mesure"],
+                    dark: true,
+                  },
+                  {
+                    emoji: "👨‍👩‍👧📊",
+                    label: "Adultes",
+                    items: ["Dépression, Stress", "Confiance en soi", "Angoisse", "Coaching de vie", "Épuisement professionnel"],
+                    dark: true,
+                  },
+                ].map((bloc) => (
+                  <div
+                    key={bloc.label}
+                    style={{
+                      background: bloc.dark ? "var(--color-forest)" : "white",
+                      borderRadius: "8px",
+                      padding: "16px 12px",
+                      textAlign: "center",
+                      boxShadow: bloc.dark ? "none" : "0 2px 12px rgba(44,74,62,0.08)",
+                      border: bloc.dark ? "none" : "1px solid rgba(44,74,62,0.08)",
+                    }}
+                  >
+                    <div style={{ fontSize: "1.2rem", marginBottom: "6px" }}>{bloc.emoji}</div>
+                    <p
+                      style={{
+                        fontFamily: "var(--font-jost)",
+                        fontSize: "0.6rem",
+                        fontWeight: 700,
+                        letterSpacing: "0.12em",
+                        textTransform: "uppercase",
+                        color: bloc.dark ? "#F5EFE4" : "var(--color-forest)",
+                        marginBottom: "8px",
+                        whiteSpace: "pre-line",
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      {bloc.label}
+                    </p>
+                    <p
+                      style={{
+                        fontFamily: "var(--font-jost)",
+                        fontSize: "0.68rem",
+                        fontWeight: 300,
+                        lineHeight: "1.6",
+                        color: bloc.dark ? "rgba(245,239,228,0.7)" : "rgba(44,74,62,0.65)",
+                      }}
+                    >
+                      {bloc.items.join(",\n")}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* Cinq axes pills */}
             <div className="flex flex-wrap gap-2 mt-10 reveal reveal-delay-4">
               {[
