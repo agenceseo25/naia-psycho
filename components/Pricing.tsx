@@ -41,51 +41,69 @@ export default function Pricing() {
             <span className="deco-line reveal reveal-delay-2 mb-8 inline-block" />
 
             {/* Price cards */}
-            <div className="reveal reveal-delay-2 space-y-4 mb-8">
+            <div className="reveal reveal-delay-2 space-y-3 mb-8">
+
+              {/* Adulte */}
+              <p style={{ fontFamily: "var(--font-jost)", fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(44,74,62,0.4)", marginBottom: "8px", marginTop: "4px" }}>
+                Adulte
+              </p>
               {[
-                { type: "Individuelle (Adulte / Ado)", price: "60 €", duration: "45 min à 1h" },
-                { type: "Thérapie de couple", price: "90 €", duration: "1h à 1h15" },
-                { type: "Visioconférence", price: "50 €", duration: "45 min à 1h" },
+                { type: "Première consultation – Bilan & Anamnèse", detail: "Séance de découverte · 45 min à 1h", price: "50 €" },
+                { type: "Séance de suivi thérapeutique", detail: "45 min", price: "60 €" },
               ].map((item) => (
-                <div
-                  key={item.type}
-                  className="relative overflow-hidden"
-                  style={{
-                    background: "var(--color-linen)",
-                    padding: "24px 32px",
-                    borderRadius: "4px",
-                  }}
-                >
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.25rem", color: "var(--color-forest)", marginBottom: "4px" }}>
-                        {item.type}
-                      </p>
-                      <span
-                        style={{
-                          fontFamily: "var(--font-jost)",
-                          fontSize: "0.75rem",
-                          letterSpacing: "0.08em",
-                          color: "rgba(44,74,62,0.5)",
-                        }}
-                      >
-                        {item.duration}
-                      </span>
-                    </div>
-                    <span
-                      style={{
-                        fontFamily: "var(--font-cormorant)",
-                        fontSize: "2.2rem",
-                        fontWeight: 400,
-                        color: "var(--color-terra)",
-                        lineHeight: 1,
-                      }}
-                    >
-                      {item.price}
-                    </span>
+                <div key={item.type} className="relative overflow-hidden flex items-center justify-between" style={{ background: "var(--color-linen)", padding: "20px 28px", borderRadius: "4px" }}>
+                  <div>
+                    <p style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.15rem", color: "var(--color-forest)", marginBottom: "2px" }}>{item.type}</p>
+                    <span style={{ fontFamily: "var(--font-jost)", fontSize: "0.72rem", letterSpacing: "0.06em", color: "rgba(44,74,62,0.45)" }}>{item.detail}</span>
                   </div>
+                  <span style={{ fontFamily: "var(--font-cormorant)", fontSize: "2rem", fontWeight: 400, color: "var(--color-terra)", lineHeight: 1, flexShrink: 0, marginLeft: "16px" }}>{item.price}</span>
                 </div>
               ))}
+
+              {/* Enfant */}
+              <p style={{ fontFamily: "var(--font-jost)", fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(44,74,62,0.4)", marginBottom: "8px", marginTop: "12px" }}>
+                Enfant
+              </p>
+              {[
+                { type: "Première consultation de psychologie", detail: "", price: "40 €" },
+                { type: "Consultation de suivi de psychologie", detail: "", price: "50 €" },
+              ].map((item) => (
+                <div key={item.type} className="relative overflow-hidden flex items-center justify-between" style={{ background: "var(--color-linen)", padding: "20px 28px", borderRadius: "4px" }}>
+                  <div>
+                    <p style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.15rem", color: "var(--color-forest)", marginBottom: "2px" }}>{item.type}</p>
+                  </div>
+                  <span style={{ fontFamily: "var(--font-cormorant)", fontSize: "2rem", fontWeight: 400, color: "var(--color-terra)", lineHeight: 1, flexShrink: 0, marginLeft: "16px" }}>{item.price}</span>
+                </div>
+              ))}
+
+              {/* Adolescent */}
+              <p style={{ fontFamily: "var(--font-jost)", fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(44,74,62,0.4)", marginBottom: "8px", marginTop: "12px" }}>
+                Adolescent
+              </p>
+              {[
+                { type: "Première consultation de psychologie", detail: "", price: "40 €" },
+                { type: "Consultation de suivi de psychologie", detail: "", price: "50 €" },
+              ].map((item) => (
+                <div key={`ado-${item.type}`} className="relative overflow-hidden flex items-center justify-between" style={{ background: "var(--color-linen)", padding: "20px 28px", borderRadius: "4px" }}>
+                  <div>
+                    <p style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.15rem", color: "var(--color-forest)", marginBottom: "2px" }}>{item.type}</p>
+                  </div>
+                  <span style={{ fontFamily: "var(--font-cormorant)", fontSize: "2rem", fontWeight: 400, color: "var(--color-terra)", lineHeight: 1, flexShrink: 0, marginLeft: "16px" }}>{item.price}</span>
+                </div>
+              ))}
+
+              {/* Visioconférence */}
+              <p style={{ fontFamily: "var(--font-jost)", fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(44,74,62,0.4)", marginBottom: "8px", marginTop: "12px" }}>
+                Visioconférence
+              </p>
+              <div className="relative overflow-hidden flex items-center justify-between" style={{ background: "#2C4A3E", padding: "20px 28px", borderRadius: "4px" }}>
+                <div>
+                  <p style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.15rem", color: "#F5EFE4", marginBottom: "2px" }}>RDV en ligne</p>
+                  <span style={{ fontFamily: "var(--font-jost)", fontSize: "0.72rem", color: "rgba(245,239,228,0.5)" }}>Tous profils · Présentiel ou visio</span>
+                </div>
+                <span style={{ fontFamily: "var(--font-cormorant)", fontSize: "2rem", fontWeight: 400, color: "var(--color-terra)", lineHeight: 1, flexShrink: 0, marginLeft: "16px" }}>50 €</span>
+              </div>
+
             </div>
 
             {/* Remboursement */}
@@ -117,7 +135,7 @@ export default function Pricing() {
                     </svg>
                   ),
                   label: "Cabinet",
-                  value: "146 bis Avenue Charles de Gaulle - 92200 Neuilly sur Seine",
+                  value: "5 rue Paul Émile Victor - 91300 Massy",
                 },
                 {
                   icon: (
