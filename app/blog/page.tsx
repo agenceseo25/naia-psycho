@@ -23,6 +23,9 @@ const CATEGORY_COLORS: Record<BlogCategory, string> = {
   "Burn-out": "#6B4C3B",
   "Développement personnel": "#4A6741",
   Parentalité: "#7A6B4A",
+  "Coaching de vie": "#5C7A6B",
+  Sommeil: "#3D5A6B",
+  Adolescence: "#8B7355",
 };
 
 export default function BlogPage() {
