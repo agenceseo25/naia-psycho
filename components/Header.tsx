@@ -37,16 +37,16 @@ export default function Header() {
             <div
               className="relative transition-all duration-500"
               style={{
-                width: scrolled ? "80px" : "100px",
-                height: scrolled ? "64px" : "80px",
+                width: scrolled ? "72px" : "96px",
+                height: scrolled ? "72px" : "96px",
               }}
             >
               <Image
                 src="/images/logo.jpeg"
-                alt="NHK Psycho — Psychopraticienne & Coach de Vie"
+                alt="NHK – Nadia KOUT Psychopraticienne & Conseil Éducatif"
                 fill
                 className="object-contain"
-                sizes="100px"
+                sizes="96px"
                 priority
               />
             </div>
@@ -84,8 +84,8 @@ export default function Header() {
       >
         {/* Logo in mobile menu */}
         <div className="absolute top-6 left-6">
-          <div className="relative" style={{ width: "90px", height: "72px" }}>
-            <Image src="/images/logo.jpeg" alt="NHK Psycho" fill className="object-contain" sizes="90px" />
+          <div className="relative" style={{ width: "80px", height: "80px" }}>
+            <Image src="/images/logo.jpeg" alt="NHK Psycho" fill className="object-contain" sizes="80px" />
           </div>
         </div>
 
