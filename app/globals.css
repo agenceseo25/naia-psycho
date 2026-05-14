@@ -1,0 +1,290 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap');
+
+:root {
+  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+  --font-jost: 'Jost', system-ui, sans-serif;
+  
+  --color-forest: #2C4A3E;
+  --color-terra: #C4774A;
+  --color-linen: #F5EFE4;
+  --color-sand: #E6D4C0;
+  --color-sage: #8B9E8C;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-linen);
+  color: var(--color-forest);
+  font-family: var(--font-jost);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--color-terra);
+  color: var(--color-linen);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-linen);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-sage);
+  border-radius: 3px;
+}
+
+/* Reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* Grain texture overlay */
+.grain::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+}
+
+/* Decorative line */
+.deco-line {
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: var(--color-terra);
+}
+
+/* ── Blog prose styles ─────────────────────────────────────────────── */
+.prose-naia h2 {
+  font-family: var(--font-cormorant);
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--color-forest);
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.prose-naia h3 {
+  font-family: var(--font-cormorant);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--color-forest);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-naia p {
+  margin-bottom: 1.25rem;
+}
+
+.prose-naia strong {
+  font-weight: 500;
+  color: var(--color-forest);
+}
+
+.prose-naia em {
+  font-style: italic;
+  color: var(--color-terra);
+}
+
+.prose-naia ul {
+  margin: 1.25rem 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.prose-naia ul li {
+  padding: 8px 0 8px 24px;
+  position: relative;
+  border-bottom: 1px solid rgba(44,74,62,0.06);
+}
+
+.prose-naia ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 18px;
+  width: 8px;
+  height: 1px;
+  background: var(--color-terra);
+}
+
+.prose-naia blockquote {
+  border-left: 2px solid var(--color-terra);
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  font-family: var(--font-cormorant);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--color-forest);
+  background: rgba(44,74,62,0.03);
+}
+
+.form-input {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(44, 74, 62, 0.25);
+  padding: 12px 0;
+  font-family: var(--font-jost);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--color-forest);
+  transition: border-color 0.3s ease;
+  outline: none;
+  letter-spacing: 0.02em;
+}
+
+.form-input:focus {
+  border-bottom-color: var(--color-terra);
+}
+
+.form-input::placeholder {
+  color: rgba(44, 74, 62, 0.4);
+  font-weight: 300;
+}
+
+.form-textarea {
+  resize: none;
+  min-height: 100px;
+}
+
+/* Nav link hover */
+.nav-link {
+  position: relative;
+  font-family: var(--font-jost);
+  font-weight: 400;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-forest);
+  transition: color 0.2s;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-terra);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Botanical SVG decoration */
+.botanical-ring {
+  animation: slowSpin 30s linear infinite;
+}
+
+@keyframes slowSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Card hover */
+.card-lift {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(44, 74, 62, 0.12);
+}
+
+/* Btn primary */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 36px;
+  background: var(--color-forest);
+  color: var(--color-linen);
+  font-family: var(--font-jost);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: background 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: var(--color-terra);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 35px;
+  border: 1px solid var(--color-forest);
+  color: var(--color-forest);
+  font-family: var(--font-jost);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.btn-outline:hover {
+  background: var(--color-forest);
+  color: var(--color-linen);
+  transform: translateY(-1px);
+}
+
+/* Section headings */
+.section-eyebrow {
+  font-family: var(--font-jost);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-terra);
+}
+
+.section-title {
+  font-family: var(--font-cormorant);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--color-forest);
+}

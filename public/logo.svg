@@ -1,0 +1,33 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer dashed ring -->
+  <circle cx="100" cy="100" r="90" stroke="#2C4A3E" stroke-width="1" stroke-dasharray="4 7" opacity="0.4"/>
+  <!-- Inner ring -->
+  <circle cx="100" cy="100" r="70" stroke="#2C4A3E" stroke-width="0.5" opacity="0.15"/>
+
+  <!-- Leaf / Spiral form - main botanical shape -->
+  <path d="M100 28 C122 48, 148 65, 138 100 C128 135, 100 152, 75 138 C50 124, 40 96, 52 70 C64 44, 82 28, 100 28Z"
+    fill="#2C4A3E" opacity="0.1"/>
+
+  <!-- Main spiral stroke -->
+  <path d="M100 28 C122 48, 148 65, 138 100 C128 135, 100 152, 75 138 C50 124, 40 96, 52 70"
+    stroke="#2C4A3E" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+  <!-- Secondary inner petal line -->
+  <path d="M100 50 C114 62, 126 78, 120 100 C114 122, 98 132, 82 125"
+    stroke="#2C4A3E" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.5"/>
+
+  <!-- Terracotta accent strokes -->
+  <path d="M100 56 C108 66, 114 78, 110 92"
+    stroke="#C4774A" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+  <path d="M118 78 C118 90, 114 102, 106 110"
+    stroke="#C4774A" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Center dot terracotta -->
+  <circle cx="100" cy="100" r="7" fill="#C4774A"/>
+  <circle cx="100" cy="100" r="3.5" fill="#2C4A3E"/>
+
+  <!-- Small decorative dots on path -->
+  <circle cx="100" cy="28" r="2.5" fill="#2C4A3E" opacity="0.5"/>
+  <circle cx="138" cy="100" r="2" fill="#C4774A" opacity="0.5"/>
+  <circle cx="75" cy="138" r="2" fill="#2C4A3E" opacity="0.4"/>
+</svg>
